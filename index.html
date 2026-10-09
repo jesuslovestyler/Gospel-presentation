@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="A clear, warm presentation of who Jesus is, what he has done, and how to receive eternal life by grace through faith." />
+  <link rel="icon" href="data:," />
+  <title>The Gospel — Who Jesus Is and How to Receive Eternal Life</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Libre+Caslon+Display&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f8faf4;
+      --bg-deep: #eef4e8;
+      --paper: #fffef9;
+      --ink: #173126;
+      --body: #30463b;
+      --muted: #64766c;
+      --line: #d8e2d5;
+      --line-strong: #b6c8b5;
+      --green: #1f5840;
+      --green-dark: #143b2d;
+      --green-soft: #e5efe5;
+      --gold: #b47b2b;
+      --gold-light: #ebcf97;
+      --quote-bg: #f3f7ef;
+      --prayer-bg: #173c2d;
+      --prayer-ink: #fbfff9;
+      --shadow: 0 24px 70px rgba(33, 72, 53, .09);
+      --serif: "Libre Caslon Display", Georgia, serif;
+      --sans: "Atkinson Hyperlegible", ui-sans-serif, sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1813;
+        --bg-deep: #101f18;
+        --paper: #14241c;
+        --ink: #f1f5ec;
+        --body: #d3ded4;
+        --muted: #9eb0a3;
+        --line: #294337;
+        --line-strong: #3c5d4d;
+        --green: #8fc6a6;
+        --green-dark: #d7eddd;
+        --green-soft: #1b3528;
+        --gold: #e6b86b;
+        --gold-light: #765a2e;
+        --quote-bg: #182b21;
+        --prayer-bg: #dceee1;
+        --prayer-ink: #14271d;
+        --shadow: 0 24px 70px rgba(0, 0, 0, .24);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 8% 3%, rgba(196, 154, 75, .10), transparent 23rem),
+        linear-gradient(180deg, var(--bg-deep) 0, var(--bg) 28rem, var(--bg) 100%);
+      color: var(--body);
+      font-family: var(--sans);
+      font-size: 18px;
+      line-height: 1.65;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(100%, 1180px);
+      margin: 0 auto;
+      padding: 0 26px 90px;
+    }
+
+    .hero {
+      min-height: min(790px, 92vh);
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(290px, .72fr);
+      align-items: center;
+      gap: clamp(48px, 8vw, 118px);
+      padding: 92px 0 82px;
+      position: relative;
+    }
+
+    .hero-copy { max-width: 690px; }
+
+    .kicker {
+      margin: 0 0 22px;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .8rem;
+    }
+
+    h1, h2, h3, blockquote, .closing-line {
+      font-family: var(--serif);
+      font-weight: 400;
+    }
+
+    h1 {
+      color: var(--ink);
+      font-size: clamp(3rem, 7vw, 6.65rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+      margin: 0;
+      max-width: 800px;
+    }
+
+    .hero-lede {
+      max-width: 610px;
+      margin: 32px 0 0;
+      color: var(--body);
+      font-size: clamp(1.08rem, 1.9vw, 1.34rem);
+      line-height: 1.55;
+    }
+
+    .hero-art {
+      aspect-ratio: 4 / 5;
+      max-height: 560px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .halo {
+      position: absolute;
+      inset: 8%;
+      border-radius: 50% 50% 44% 56% / 58% 42% 58% 42%;
+      background:
+        repeating-conic-gradient(from 4deg, transparent 0 10deg, color-mix(in srgb, var(--gold) 34%, transparent) 10deg 11deg),
+        radial-gradient(circle, color-mix(in srgb, var(--gold-light) 42%, transparent) 0 30%, transparent 64%);
+      opacity: .65;
+      animation: breathe 9s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    .cross {
+      width: 54%;
+      height: 72%;
+      position: relative;
+      filter: drop-shadow(0 22px 22px rgba(22, 64, 46, .12));
+    }
+
+    .cross::before,
+    .cross::after {
+      content: "";
+      position: absolute;
+      border-radius: 3px;
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+    }
+
+    .cross::before { width: 24%; height: 100%; left: 38%; top: 0; }
+    .cross::after { height: 18%; width: 100%; left: 0; top: 27%; }
+
+    .scroll-cue {
+      position: absolute;
+      left: 0;
+      bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: .9rem;
+      text-decoration: none;
+    }
+
+    .scroll-cue::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .journey {
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .journey::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--green-dark), var(--gold), var(--green));
+    }
+
+    .chapter {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 34px;
+      padding: clamp(56px, 8vw, 96px) clamp(28px, 7vw, 104px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .chapter:last-child { border-bottom: 0; }
+
+    .number {
+      width: 58px;
+      height: 58px;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      line-height: 1;
+      position: sticky;
+      top: 24px;
+    }
+
+    .chapter-body { max-width: 790px; }
+
+    h2 {
+      margin: 0;
+      color: var(--ink);
+      font-size: clamp(2.35rem, 5vw, 4.8rem);
+      line-height: 1.02;
+      letter-spacing: -.035em;
+    }
+
+    .chapter-intro {
+      margin: 23px 0 38px;
+      font-size: 1.1rem;
+      max-width: 710px;
+    }
+
+    .scriptures {
+      display: grid;
+      gap: 14px;
+    }
+
+    blockquote {
+      margin: 0;
+      padding: 25px 28px 24px;
+      background: var(--quote-bg);
+      color: var(--ink);
+      border-radius: 2px 16px 16px 2px;
+      font-size: clamp(1.28rem, 2.4vw, 1.72rem);
+      line-height: 1.42;
+      position: relative;
+      border-left: 3px solid var(--gold);
+    }
+
+    cite {
+      display: block;
+      margin-top: 15px;
+      color: var(--green);
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: .77rem;
+      font-weight: 700;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+    }
+
+    .gift-note {
+      margin-top: 34px;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--line);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 1.07rem;
+    }
+
+    .assurance {
+      background: var(--green-soft);
+    }
+
+    .assurance blockquote {
+      background: var(--paper);
+      box-shadow: 0 14px 40px rgba(26, 69, 49, .06);
+    }
+
+    .prayer-wrap {
+      padding: clamp(68px, 9vw, 116px) 0 36px;
+    }
+
+    .prayer {
+      position: relative;
+      background: var(--prayer-bg);
+      color: var(--prayer-ink);
+      padding: clamp(42px, 8vw, 92px);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .prayer::after {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border: 1px solid color-mix(in srgb, var(--gold-light) 40%, transparent);
+      border-radius: 50%;
+      right: -125px;
+      top: -150px;
+      box-shadow: 0 0 0 52px color-mix(in srgb, var(--gold-light) 8%, transparent), 0 0 0 105px color-mix(in srgb, var(--gold-light) 4%, transparent);
+      pointer-events: none;
+    }
+
+    .prayer .kicker { color: var(--gold-light); }
+
+    .prayer h2 {
+      color: inherit;
+      max-width: 760px;
+    }
+
+    .prayer-intro {
+      max-width: 720px;
+      margin: 24px 0 38px;
+      opacity: .88;
+    }
+
+    .prayer blockquote {
+      padding: 0 0 0 26px;
+      border-radius: 0;
+      border-left: 2px solid var(--gold-light);
+      background: transparent;
+      color: inherit;
+      max-width: 790px;
+      font-size: clamp(1.35rem, 3vw, 2.15rem);
+      line-height: 1.48;
+    }
+
+    .prayer-note {
+      margin: 34px 0 0;
+      max-width: 690px;
+      font-size: .96rem;
+      opacity: .82;
+    }
+
+    .closing {
+      text-align: center;
+      padding: 82px 20px 0;
+    }
+
+    .ornament {
+      width: 118px;
+      height: 1px;
+      background: var(--line-strong);
+      margin: 0 auto 32px;
+      position: relative;
+    }
+
+    .ornament::after {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border: 1px solid var(--gold);
+      background: var(--bg);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .closing-line {
+      margin: 0 auto;
+      max-width: 780px;
+      color: var(--ink);
+      font-size: clamp(1.75rem, 3.5vw, 2.8rem);
+      line-height: 1.2;
+    }
+
+    .translation-note {
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(.98) rotate(-1deg); opacity: .54; }
+      50% { transform: scale(1.03) rotate(1deg); opacity: .76; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .halo { animation: none; }
+    }
+
+    @media (max-width: 760px) {
+      body { font-size: 17px; }
+      .page { padding: 0 16px 62px; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 66px 8px 104px;
+      }
+      h1 { font-size: clamp(3.1rem, 16vw, 5rem); }
+      .hero-art {
+        position: absolute;
+        width: 180px;
+        height: 230px;
+        right: -52px;
+        bottom: -14px;
+        opacity: .18;
+        pointer-events: none;
+      }
+      .scroll-cue { bottom: 36px; }
+      .chapter {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 50px 22px 56px;
+      }
+      .number {
+        position: static;
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+      }
+      .chapter-intro { margin-top: 18px; }
+      blockquote { padding: 21px 21px 20px; }
+      .prayer-wrap { padding-top: 56px; }
+      .prayer { padding: 46px 24px 52px; }
+      .prayer blockquote { padding-left: 20px; }
+      .closing { padding-top: 66px; }
+    }
+
+    @media (max-width: 380px) {
+      .page { padding-left: 10px; padding-right: 10px; }
+      .hero { padding-left: 10px; padding-right: 10px; }
+      .chapter { padding-left: 18px; padding-right: 18px; }
+      blockquote { padding-left: 18px; padding-right: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="kicker">The good news of Jesus Christ</p>
+        <h1 id="page-title">Eternal life is a gift.</h1>
+        <p class="hero-lede">The gospel is the good news that God has come near to us in Jesus Christ. He offers forgiveness, peace with God, and life that never ends—not as a reward to earn, but as a gift to receive.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="halo"></div>
+        <div class="cross"></div>
+      </div>
+      <a class="scroll-cue" href="#who-is-jesus">Begin here</a>
+    </section>
+
+    <div class="journey">
+      <section class="chapter" id="who-is-jesus" aria-labelledby="who-title">
+        <div class="number" aria-hidden="true">01</div>
+        <div class="chapter-body">
+          <h2 id="who-title">Who Jesus is</h2>
+          <p class="chapter-intro">Jesus Christ is the eternal Son of God—fully God and fully man. He is not merely a teacher or prophet. He is the Word who was with God and was God, who took on flesh and lived among us. He alone brings us to the Father.</p>
+          <div class="scriptures">
+            <blockquote>“In the beginning was the Word, and the Word was with God, and the Word was God.”<cite>John 1:1</cite></blockquote>
+            <blockquote>“The Word became flesh and lived among us. We saw his glory, such glory as of the one and only Son of the Father, full of grace and truth.”<cite>John 1:14</cite></blockquote>
+            <blockquote>Jesus said to him, “I am the way, the truth, and the life. No one comes to the Father, except through me.”<cite>John 14:6</cite></blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" aria-labelledby="need-title">
+        <div class="number" aria-hidden="true">02</div>
+        <div class="chapter-body">
+          <h2 id="need-title">Why we need him</h2>
+          <p class="chapter-intro">God made us for himself, but each of us has sinned—choosing our own way instead of his. Sin separates us from the holy God who gives life. We cannot erase our guilt or make ourselves right with him.</p>
+          <div class="scriptures">
+            <blockquote>“For all have sinned, and fall short of the glory of God.”<cite>Romans 3:23</cite></blockquote>
+            <blockquote>“For the wages of sin is death, but the free gift of God is eternal life in Christ Jesus our Lord.”<cite>Romans 6:23</cite></blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" aria-labelledby="did-title">
+        <div class="number" aria-hidden="true">03</div>
+        <div class="chapter-body">
+          <h2 id="did-title">What he did for us</h2>
+          <p class="chapter-intro">God did not leave us in our sin. Out of love, the Father sent his Son. Jesus lived without sin, gave himself on the cross for our sins, was buried, and rose bodily from the dead. He accomplished the rescue we could never accomplish.</p>
+          <div class="scriptures">
+            <blockquote>“For God so loved the world, that he gave his one and only Son, that whoever believes in him should not perish, but have eternal life.”<cite>John 3:16</cite></blockquote>
+            <blockquote>“For I delivered to you first of all that which I also received: that Christ died for our sins according to the Scriptures, that he was buried, that he was raised on the third day according to the Scriptures.”<cite>1 Corinthians 15:3–4</cite></blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapter" aria-labelledby="receive-title">
+        <div class="number" aria-hidden="true">04</div>
+        <div class="chapter-body">
+          <h2 id="receive-title">How to receive eternal life</h2>
+          <p class="chapter-intro">Come to Jesus as you are and believe in him: trust who he is and rest your hope on what he has done. Salvation is God’s grace from beginning to end. It is received through faith—not purchased by good works, religious effort, or deserving it.</p>
+          <div class="scriptures">
+            <blockquote>They said, “Believe in the Lord Jesus Christ, and you will be saved, you and your household.”<cite>Acts 16:31</cite></blockquote>
+            <blockquote>“Most certainly I tell you, he who hears my word and believes him who sent me has eternal life, and doesn’t come into judgment, but has passed out of death into life.”<cite>John 5:24</cite></blockquote>
+            <blockquote>“For by grace you have been saved through faith, and that not of yourselves; it is the gift of God, not of works, that no one would boast.”<cite>Ephesians 2:8–9</cite></blockquote>
+          </div>
+          <p class="gift-note">Faith is not earning the gift. It is opening your hands to receive what Jesus has already done.</p>
+        </div>
+      </section>
+
+      <section class="chapter assurance" aria-labelledby="assurance-title">
+        <div class="number" aria-hidden="true">05</div>
+        <div class="chapter-body">
+          <h2 id="assurance-title">You may know</h2>
+          <p class="chapter-intro">God does not ask believers to live in endless uncertainty. The promise rests on his Son and his word, not on the strength of our feelings. If you believe in the name of the Son of God, eternal life is yours now—and your hope is secure in him.</p>
+          <div class="scriptures">
+            <blockquote>“These things I have written to you who believe in the name of the Son of God, that you may know that you have eternal life, and that you may continue to believe in the name of the Son of God.”<cite>1 John 5:13</cite></blockquote>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="prayer-wrap" aria-labelledby="prayer-title">
+      <div class="prayer">
+        <p class="kicker">A simple prayer</p>
+        <h2 id="prayer-title">If you want to come to Jesus</h2>
+        <p class="prayer-intro">You do not need perfect words. Prayer is simply speaking honestly to God. If this expresses what you believe, you may pray something like this:</p>
+        <blockquote>Lord Jesus, I believe that you are the Son of God. I know that I have sinned and need your mercy. I believe you died for my sins and rose again. I trust in you alone, and I receive your gift of eternal life. Thank you for your grace. Help me to know you and follow you. Amen.</blockquote>
+        <p class="prayer-note">A prayer does not save by the mere saying of it. Jesus saves. The promise is for everyone who believes in him.</p>
+      </div>
+    </section>
+
+    <footer class="closing">
+      <div class="ornament" aria-hidden="true"></div>
+      <p class="closing-line">“Whoever believes in him should not perish, but have eternal life.”</p>
+      <p class="translation-note">Scripture quotations are from the World English Bible, a public-domain translation.</p>
+    </footer>
+  </main>
+</body>
+</html>
