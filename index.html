@@ -382,6 +382,32 @@
       font-size: .8rem;
     }
 
+    .home-button {
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      z-index: 50;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: var(--paper);
+      color: var(--green-dark);
+      font-family: var(--sans);
+      font-size: .85rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(33, 72, 53, .12);
+      transition: border-color .2s ease, color .2s ease;
+    }
+
+    .home-button:hover,
+    .home-button:focus-visible {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
     @keyframes breathe {
       0%, 100% { transform: scale(.98) rotate(-1deg); opacity: .54; }
       50% { transform: scale(1.03) rotate(1deg); opacity: .76; }
@@ -440,6 +466,7 @@
   </style>
 </head>
 <body>
+  <a class="home-button" href="https://jesuslovestyler.com/">⌂ Home</a>
   <main class="page">
     <section class="hero" aria-labelledby="page-title">
       <div class="hero-copy">
@@ -534,5 +561,6 @@
       <p class="translation-note">Scripture quotations are from the World English Bible, a public-domain translation.</p>
     </footer>
   </main>
+  <script data-goatcounter="https://jesuslovestyler.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
